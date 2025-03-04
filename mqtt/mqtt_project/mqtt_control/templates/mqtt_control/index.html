@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Relee</title>
+</head>
+<body>
+	<h1>Localitatea: Blaj, jud. Alba</h1>
+	<h1>Temperature: {{ temperature }}</h1>
+    <h1>Humidity: {{ humidity }}  </h1>
+    <button onclick="sendCommand('open_relay')">Deschide Relee</button>
+	<p>Ultima actionare a releului a avut loc la: {{ relay_timestamp }}</p>
+
+    <script>
+        function sendCommand(command) {
+            fetch(`/mqtt/control_relay/?command=${command}`)
+                .then(response => response.text())
+                .then(data => alert(data))
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
