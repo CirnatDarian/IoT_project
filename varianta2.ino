@@ -15,8 +15,8 @@ const int relee[] = {16, 15};  // Pinurile pentru relee
 #define RST_PIN 17
 MFRC522 rfid(SS_PIN, RST_PIN);
 
-const char* ssid = "ASUS";
-const char* password = "parasuta";
+const char* ssid = "xxx";
+const char* password = "xxx";
 
 const char* mqtt_server = "192.168.1.14";  // Adresa IP a Raspberry Pi
 WiFiClient espClient;
